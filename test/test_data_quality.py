@@ -1,13 +1,26 @@
 import pandas as pd
 import pytest
 from pandera.pandas import DataFrameSchema, Column
+from datetime import datetime
+
+TEST_RESULTS_FILE = f"docs/test_results/test_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
 
 @pytest.fixture
 def datos_banco():
+    """ Fixture para cargar los datos del banco desde un archivo csv 
+    
+    Returns:
+        pd.DataFrame: DataFrame que contiene los datos del banco
+    """
     df = pd.read_csv('data/raw/bank-additional-full.csv', sep=';')
     return df
 
 def test_esquema(datos_banco):
+    """ Test de Esquema para el DataFrame de datos_banco
+    
+    Args:
+        datos_banco(pd.DataFrame): DataFrame que contiene los datos del banco
+    """
     df = datos_banco
     schema = DataFrameSchema( {
         "age": Column(int, nullable=False),
@@ -34,3 +47,34 @@ def test_esquema(datos_banco):
 
     schema.validate(df)
 
+def test_basico(datos_banco):
+    """ Test de Basico para el DataFrame de datos_banco
+    
+    Args:
+        datos_banco(pd.DataFrame): DataFrame que contiene los datos del banco
+    """
+    df = datos_banco
+
+    # Verificar que el DataFrame no este vacio
+    assert not df.empty, "El DataFrame esta vacio"
+
+    # Verificar nulos
+    assert df.isnull().sum().sum() == 0, "El DataFrame tiene valores nulos"
+
+    # Verificar duplicados
+    #assert df.duplicated().sum() == 0, "El DataFrame tiene valores duplicados"
+
+    # Verificar cantidad de columnas
+    assert df.shape[1] == 21, "El DataFrame tiene 21 columnas"
+
+if __name__ == "__main__":
+    try:
+        test_esquema(datos_banco())
+        test_basico(datos_banco())
+        print("Todos los tests han pasado correctamente")
+        with open(TEST_RESULTS_FILE, "w") as f:
+            f.write("Todos los tests han pasado correctamente")
+    except AssertionError as e:
+        print(f"Test fallido: {e}")
+        with open(TEST_RESULTS_FILE, "w") as f:
+            f.write(f"Test fallido: {e}\n")
