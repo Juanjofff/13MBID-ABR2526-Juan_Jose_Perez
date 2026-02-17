@@ -3,8 +3,6 @@ import pytest
 from pandera.pandas import DataFrameSchema, Column
 from datetime import datetime
 
-TEST_RESULTS_FILE = f"docs/test_results/test_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
-
 @pytest.fixture
 def datos_banco():
     """ Fixture para cargar los datos del banco desde un archivo csv 
@@ -67,14 +65,15 @@ def test_basico(datos_banco):
     # Verificar cantidad de columnas
     assert df.shape[1] == 21, "El DataFrame tiene 21 columnas"
 
-if __name__ == "__main__":
-    try:
-        test_esquema(datos_banco())
-        test_basico(datos_banco())
-        print("Todos los tests han pasado correctamente")
-        with open(TEST_RESULTS_FILE, "w") as f:
-            f.write("Todos los tests han pasado correctamente")
-    except AssertionError as e:
-        print(f"Test fallido: {e}")
-        with open(TEST_RESULTS_FILE, "w") as f:
-            f.write(f"Test fallido: {e}\n")
+#if __name__ == "__main__":
+#    try:
+#        df = cargar_datos_banco()
+#        test_esquema(df)
+#        test_basico(df)
+#        print("Todos los tests han pasado correctamente")
+#        with open(TEST_RESULTS_FILE, "w") as f:
+#            f.write("Todos los tests han pasado correctamente")
+#    except AssertionError as e:
+#        print(f"Test fallido: {e}")
+#        with open(TEST_RESULTS_FILE, "w") as f:
+#            f.write(f"Test fallido: {e}\n")
