@@ -1,4 +1,4 @@
-.PHONY: check_python check_virtualenv create_env
+.PHONY: check_python check_virtualenv create_env serve-report
 
 check_python:
 	@echo "Se verifica instalación de python."
@@ -36,3 +36,10 @@ create_requirements:
 clean:
 	@rm -rf .env
 	@echo "Se eliminó el entorno virtual."
+
+# Sirve los reportes HTML para ver Environment y detalle de tests (el JS no corre con file://).
+serve-report:
+	@echo "Sirviendo reportes en http://localhost:8080"
+	@echo "Abre: http://localhost:8080/test_results.html  o  http://localhost:8080/test_results_gx.html"
+	@echo "Detén el servidor con Ctrl+C."
+	@python3 -m http.server 8080 -d docs/test_results
