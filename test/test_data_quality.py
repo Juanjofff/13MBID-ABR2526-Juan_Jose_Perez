@@ -65,15 +65,5 @@ def test_basico(datos_banco):
     # Verificar cantidad de columnas
     assert df.shape[1] == 21, "El DataFrame tiene 21 columnas"
 
-#if __name__ == "__main__":
-#    try:
-#        df = cargar_datos_banco()
-#        test_esquema(df)
-#        test_basico(df)
-#        print("Todos los tests han pasado correctamente")
-#        with open(TEST_RESULTS_FILE, "w") as f:
-#            f.write("Todos los tests han pasado correctamente")
-#    except AssertionError as e:
-#        print(f"Test fallido: {e}")
-#        with open(TEST_RESULTS_FILE, "w") as f:
-#            f.write(f"Test fallido: {e}\n")
+#ToDO: Agregar mas tests, al menos 1 funcion de test mas con una verificacion 
+# como por ejemplo algo basico de una columna, o que una columna no tenga duplicados, etc.

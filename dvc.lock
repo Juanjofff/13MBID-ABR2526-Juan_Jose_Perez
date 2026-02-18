@@ -30,3 +30,20 @@ stages:
       hash: md5
       md5: aec60d3351a862f77208c9302bccdbb5
       size: 32892
+  test_data_gx:
+    cmd: pytest --html=docs/test_results/test_results_gx.html 
+      --self-contained-html test/test_data_gx.py
+    deps:
+    - path: data/raw/bank-additional-full.csv
+      hash: md5
+      md5: f6cb2c1256ffe2836b36df321f46e92c
+      size: 5834924
+    - path: test/test_data_gx.py
+      hash: md5
+      md5: cef39a41d6dc0b787829a0d7a5e7c3ec
+      size: 1310
+    outs:
+    - path: docs/test_results/test_results_gx.html
+      hash: md5
+      md5: 424bec907b5a609c064c2117725b15fa
+      size: 32322
