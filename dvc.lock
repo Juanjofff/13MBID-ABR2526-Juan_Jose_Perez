@@ -23,12 +23,12 @@ stages:
       size: 5834924
     - path: test/test_data_quality.py
       hash: md5
-      md5: 19c0f08a2967b31fafb87811b93d6b27
-      size: 2771
+      md5: 7427896ac98716ac8e5f9bc313862437
+      size: 2479
     outs:
     - path: docs/test_results/test_results.html
       hash: md5
-      md5: aec60d3351a862f77208c9302bccdbb5
+      md5: 8aaba1c3cb5864fab836bf29735e8249
       size: 32892
   test_data_gx:
     cmd: pytest --html=docs/test_results/test_results_gx.html 
