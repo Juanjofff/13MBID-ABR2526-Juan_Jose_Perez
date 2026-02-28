@@ -8,11 +8,22 @@ stages:
       md5: f6cb2c1256ffe2836b36df321f46e92c
       size: 5834924
     outs:
-    - path: docs/figures/
+    - path: docs/figures/distribution_of_education.png
       hash: md5
-      md5: fd4ce12724a0a0f4d8681b38a162137b.dir
-      size: 39818
-      nfiles: 2
+      md5: a943a8081457ac8c2eab69077d32637c
+      size: 18144
+    - path: docs/figures/distribution_of_job.png
+      hash: md5
+      md5: 322b219613fa8be2fcdd4a6e94ba470a
+      size: 20117
+    - path: docs/figures/distribution_of_marital.png
+      hash: md5
+      md5: d997e767703215568cdafc607b71bc2b
+      size: 12568
+    - path: docs/figures/distribution_target.png
+      hash: md5
+      md5: 60af62f2360c92af922ab6c18f40c2ae
+      size: 21674
   test_data_quality:
     cmd: pytest --html=docs/test_results/test_results.html --self-contained-html
       test/test_data_quality.py
