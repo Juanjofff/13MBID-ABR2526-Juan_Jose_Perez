@@ -56,5 +56,4 @@ def test_great_expectations():
         "day_of_week_values",
         df["day_of_week"].isin(["mon", "tue", "wed", "thu", "fri", "sat", "sun"]).all(),
         "La columna 'day_of_week' contiene valores no validos")
-    #ToDo: Agregar mas validaciones, al menos 2
 

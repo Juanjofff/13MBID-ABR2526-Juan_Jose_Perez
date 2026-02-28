@@ -50,8 +50,4 @@ En la tabla de evaluaciones se detallan los tests generados en cada archivo.
 |                           | `day_of_week_values`   | La columna `day_of_week` solo admite mon, tue, wed, thu, fri, sat, sun.                                    |
 
 
-Los reportes HTML se generan con:
-
-- `dvc repro test_data_quality` → `docs/test_results/test_results.html`
-- `dvc repro test_data_gx` → `docs/test_results/test_results_gx.html`
 
