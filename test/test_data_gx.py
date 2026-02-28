@@ -40,6 +40,21 @@ def test_great_expectations():
         "target_values",
         df["y"].isin(["yes", "no"]).all(),
         "La columna 'y' contiene valores no validos")
-
+    add_expectation(
+        "contact_values",
+        df["contact"].isin(["cellular", "telephone"]).all(),
+        "La columna 'contact' contiene valores no validos")
+    add_expectation(
+        "marital_values",
+        df["marital"].isin(["divorced", "married", "single", "unknown"]).all(),
+        "La columna 'marital' contiene valores no validos")
+    add_expectation( 
+        "month_values",
+        df["month"].isin(["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]).all(),
+        "La columna 'month' contiene valores no validos")
+    add_expectation(
+        "day_of_week_values",
+        df["day_of_week"].isin(["mon", "tue", "wed", "thu", "fri", "sat", "sun"]).all(),
+        "La columna 'day_of_week' contiene valores no validos")
     #ToDo: Agregar mas validaciones, al menos 2
 

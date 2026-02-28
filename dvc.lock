@@ -59,12 +59,12 @@ stages:
       size: 5834924
     - path: test/test_data_gx.py
       hash: md5
-      md5: cef39a41d6dc0b787829a0d7a5e7c3ec
-      size: 1310
+      md5: 04539bfbb5ce24271c19ef14c1dee3e0
+      size: 2090
     outs:
     - path: docs/test_results/test_results_gx.html
       hash: md5
-      md5: 424bec907b5a609c064c2117725b15fa
+      md5: 4d18dbb3cf4cd00001c3a48c6a601bd3
       size: 32322
   preprocess_data:
     cmd: python src/data_preparation.py
