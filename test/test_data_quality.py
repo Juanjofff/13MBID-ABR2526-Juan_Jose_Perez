@@ -65,5 +65,24 @@ def test_basico(datos_banco):
     # Verificar cantidad de columnas
     assert df.shape[1] == 21, "El DataFrame tiene 21 columnas"
 
-#ToDO: Agregar mas tests, al menos 1 funcion de test mas con una verificacion 
-# como por ejemplo algo basico de una columna, o que una columna no tenga duplicados, etc.
+def test_columna_contact(datos_banco):
+    """ Test de la columna contact para el DataFrame de datos_banco
+    
+    Args:
+        datos_banco(pd.DataFrame): DataFrame que contiene los datos del banco
+    """
+    df = datos_banco
+    assert df["contact"].nunique() == 2, "La columna contact debe tener exactamente 2 valores únicos"
+    assert df["contact"].isin(["cellular", "telephone"]).all(), "La columna contact solo admite 'cellular' y 'telephone'"
+    assert df["contact"].isnull().sum() == 0, "La columna contact no debe tener nulos"
+
+def test_columna_marital(datos_banco):
+    """ Test de la columna marital para el DataFrame de datos_banco
+    
+    Args:
+        datos_banco(pd.DataFrame): DataFrame que contiene los datos del banco
+    """
+    df = datos_banco
+    assert df["marital"].nunique() == 4, "La columna marital debe tener exactamente 4 valores únicos"
+    assert df["marital"].isin(["divorced", "married", "single", "unknown"]).all(), "La columna marital solo admite divorced, married, single, unknown"
+    assert df["marital"].isnull().sum() == 0, "La columna marital no debe tener nulos"
