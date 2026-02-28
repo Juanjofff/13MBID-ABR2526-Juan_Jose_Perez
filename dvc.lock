@@ -75,14 +75,14 @@ stages:
       size: 5834924
     - path: src/data_preparation.py
       hash: md5
-      md5: dc2b01a3737cff7342ffd446aea2eb26
-      size: 1879
+      md5: 5030550fedd3e1785acf739794d30cec
+      size: 2118
     outs:
     - path: data/processed/bank-processed.csv
       hash: md5
-      md5: 8ec418f7c73c6f688e227eeeeda044b8
-      size: 4406723
+      md5: c958c50d384f08c62ed28d7cd2304b82
+      size: 4364234
     - path: docs/transformation.txt
       hash: md5
-      md5: 24efa8e72419eae68da331593a34feab
-      size: 417
+      md5: 0a4991e86942352ec936f96436e9d674
+      size: 494

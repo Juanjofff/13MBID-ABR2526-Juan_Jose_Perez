@@ -30,6 +30,13 @@ def preprocess_data(input_csv: str = INPUT_CSV, output_csv: str = OUTPUT_CSV):
     # se hace un filtro para eliminar las filas duplicadas
     df.drop_duplicates(inplace=True)
 
+    # Mapear la columna objetivo 'y' a valores binarios
+    map = {
+        'yes': 1,
+        'no': 0
+    }
+    df['y'] = df['y'].map(map)
+
     # reindexar para índice consecutivo
     df.reset_index(drop=True, inplace=True)
 
@@ -48,5 +55,6 @@ if __name__ == "__main__":
         f.write("- Se eliminaron la columna 'default' debido a la cantidad de valores desconocidos (nulos) \n ")
         f.write("- Se eliminaron espacios en blanco al inicio/final en cadenas \n ")
         f.write("- Se reindexó el DataFrame \n ")
-        f.write(f"- Cantidad de filas finales: {rows}")
+        f.write("- Se mapearon los valores de la columna objetivo 'y' a valores binarios \n ")
+        f.write(f"- Cantidad de filas finales: {rows} \n ")
         f.write(f"- Cantidad de columnas finales: {columns}")
