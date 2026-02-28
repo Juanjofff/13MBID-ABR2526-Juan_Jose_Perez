@@ -8,6 +8,8 @@ stages:
       - docs/figures/distribution_of_education.png
       - docs/figures/distribution_of_job.png
       - docs/figures/distribution_of_marital.png
+      - docs/figures/distribution_of_contact.png
+      - docs/figures/distribution_of_month.png
   test_data_quality:
     cmd: pytest --html=docs/test_results/test_results.html --self-contained-html test/test_data_quality.py 
     deps:

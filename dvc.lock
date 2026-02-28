@@ -8,6 +8,10 @@ stages:
       md5: f6cb2c1256ffe2836b36df321f46e92c
       size: 5834924
     outs:
+    - path: docs/figures/distribution_of_contact.png
+      hash: md5
+      md5: db0c87ad72500d07bc9164a055f84f6a
+      size: 10554
     - path: docs/figures/distribution_of_education.png
       hash: md5
       md5: a943a8081457ac8c2eab69077d32637c
@@ -20,6 +24,10 @@ stages:
       hash: md5
       md5: d997e767703215568cdafc607b71bc2b
       size: 12568
+    - path: docs/figures/distribution_of_month.png
+      hash: md5
+      md5: fa944030e5495b41492636e40462e555
+      size: 14877
     - path: docs/figures/distribution_target.png
       hash: md5
       md5: 60af62f2360c92af922ab6c18f40c2ae

@@ -59,6 +59,28 @@ def visualize_data(source: str = 'data/raw/bank-additional-full.csv',
     plt.ylabel(col)
     plt.savefig(output + f"distribution_of_{col}.png")
     plt.close()
+
+    # Grafico 5: Distribución de la variable contact 
+    plt.figure(figsize=(6, 4))
+    col = "contact"
+    order = df[col].value_counts().index
+    sns.countplot(y=col, data=df, order=order)
+    plt.title(f"Distribución de {col}")
+    plt.xlabel("Cantidad")
+    plt.ylabel(col)
+    plt.savefig(output + f"distribution_of_{col}.png")
+    plt.close()
+
+    # Grafico 6: Distribución de la variable month
+    plt.figure(figsize=(6, 4))
+    col = "month"
+    order = df[col].value_counts().index
+    sns.countplot(y=col, data=df, order=order)
+    plt.title(f"Distribución de {col}")
+    plt.xlabel("Cantidad")
+    plt.ylabel(col)
+    plt.savefig(output + f"distribution_of_{col}.png")
+    plt.close()
    
 if __name__ == "__main__":
     visualize_data()
