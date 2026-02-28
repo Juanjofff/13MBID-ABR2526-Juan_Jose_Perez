@@ -38,10 +38,27 @@ def visualize_data(source: str = 'data/raw/bank-additional-full.csv',
     plt.savefig(output + f"distribution_of_{col}.png")
     plt.close()
 
-    #########################################################
-    # TODO: Agregar 2 graficos mas
-    #########################################################
+    # Grafico 3: Distribución de la variable job
+    plt.figure(figsize=(6, 4))
+    col = "job"
+    order = df[col].value_counts().index
+    sns.countplot(y=col, data=df, order=order)
+    plt.title(f"Distribución de {col}")
+    plt.xlabel("Cantidad")
+    plt.ylabel(col)
+    plt.savefig(output + f"distribution_of_{col}.png")
+    plt.close()
 
+    # Grafico 4: Distribución de la variable marital
+    plt.figure(figsize=(6, 4))
+    col = "marital"
+    order = df[col].value_counts().index
+    sns.countplot(y=col, data=df, order=order)
+    plt.title(f"Distribución de {col}")
+    plt.xlabel("Cantidad")
+    plt.ylabel(col)
+    plt.savefig(output + f"distribution_of_{col}.png")
+    plt.close()
    
 if __name__ == "__main__":
     visualize_data()
