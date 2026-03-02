@@ -4,8 +4,8 @@ services:
   - type: web
     name: api-prediccion-bancaria
     runtime: python
-    # Usar el requirements.txt de la raíz (o config/requirements.txt si lo configuras en el dashboard)
-    buildCommand: pip install -r requirements.txt
+    # Render usa uv sync (por uv.lock); uv.lock no tenía uvicorn → instalar en el mismo .venv
+    buildCommand: uv sync && .venv/bin/pip install "uvicorn[standard]"
     startCommand: bash run.sh
     # Carpeta donde están app/ y models/ (raíz del repo)
     # envVars: si necesitas variables de entorno, añádelas en el dashboard de Render
