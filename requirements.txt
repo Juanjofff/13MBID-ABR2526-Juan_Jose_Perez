@@ -1,0 +1,8 @@
+# Dependencias mínimas para desplegar la API en Render
+# (El proyecto completo usa config/requirements.txt)
+fastapi
+uvicorn[standard]
+pandas
+scikit-learn
+joblib
+pydantic
