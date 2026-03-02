@@ -32,3 +32,12 @@ stages:
     outs:
       - data/processed/bank-processed.csv
       - docs/transformation.txt
+  train_model:
+    cmd: python src/train_model.py
+    deps:
+      - src/train_model.py
+      - data/processed/bank-processed.csv
+    outs:
+      - models/decision_tree_model.pkl
+      - models/preprocessor.pkl
+      - metrics/train_metrics.json

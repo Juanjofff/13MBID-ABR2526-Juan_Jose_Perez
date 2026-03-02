@@ -75,14 +75,38 @@ stages:
       size: 5834924
     - path: src/data_preparation.py
       hash: md5
-      md5: 5030550fedd3e1785acf739794d30cec
-      size: 2118
+      md5: 2a0101e8f3336cd729316b0ef1be1dc7
+      size: 2238
     outs:
     - path: data/processed/bank-processed.csv
       hash: md5
-      md5: c958c50d384f08c62ed28d7cd2304b82
-      size: 4364234
+      md5: 46c8ceac757c5ddf610154773268dc92
+      size: 4329885
     - path: docs/transformation.txt
       hash: md5
       md5: 0a4991e86942352ec936f96436e9d674
       size: 494
+  train_model:
+    cmd: python src/train_model.py
+    deps:
+    - path: data/processed/bank-processed.csv
+      hash: md5
+      md5: 46c8ceac757c5ddf610154773268dc92
+      size: 4329885
+    - path: src/train_model.py
+      hash: md5
+      md5: 50207b9828b9eaa467020c964de459d6
+      size: 10633
+    outs:
+    - path: metrics/train_metrics.json
+      hash: md5
+      md5: e9a145e9089be71acd284cdebca46d0c
+      size: 158
+    - path: models/decision_tree_model.pkl
+      hash: md5
+      md5: ca323a03f359f3e93c4677912f080dd4
+      size: 45129
+    - path: models/preprocessor.pkl
+      hash: md5
+      md5: 4cb807d6d71e13add9e3d4202a309f7a
+      size: 6496
