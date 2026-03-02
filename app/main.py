@@ -82,6 +82,11 @@ except Exception as e:
 def root():
     return {"message": "API para predecir si un cliente aceptará la oferta de un depósito a plazo"}
 
+#DEFINIR LA RUTA DE LA API PARA VER EL ESTADO DE LA API
+@app.get("/health")
+def health():
+    return {"status": "healthy"}
+
 #DEFINIR LA RUTA DE LA API PARA HACER LAS PREDICCIONES
 @app.post("/predict", response_model=PredictionResponse)
 async def predict(request: PredictionRequest):

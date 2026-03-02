@@ -74,7 +74,7 @@ def create_preprocessor(X_train):
 
     # Pipeline para valores categóricos
     cat_pipeline = Pipeline(steps=[
-        ('OneHotEncoder', OneHotEncoder(drop='first',sparse_output=False))
+        ('OneHotEncoder', OneHotEncoder(drop='first', sparse_output=False, handle_unknown='ignore'))
     ])
 
     # Se configuran los preprocesadores
